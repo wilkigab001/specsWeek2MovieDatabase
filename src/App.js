@@ -1,27 +1,40 @@
-import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header'
-import MovieScreen from './components/MovieScreen';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import MovieScreen from "./components/MovieScreen";
+import axios from "axios";
+import Watchlist from "./components/Watchlist";
 
 function App() {
+  const [movieList, setMovieList] = useState([]);
+  const [list, setList] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const [movieList, setMovieList] = useState([])
-  const [list, setWatchList] = useState([])
-  const [page, setPage] = useState(1)
+  const addMovie = (movie) => {
+    return setList([...list, movie]);
+  };
+
+  const removeMovie = (movie) => {
+    const newState = list.filter((movies) => {
+      return movies !== movie;
+    });
+    setList(newState);
+  };
 
   const getData = () => {
     axios
-        .get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`)
-        .then((results) => {
-          setMovieList(results.data.results)
-        })
-  }
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
+      )
+      .then((res) => {
+        console.log(res.data.results);
+        setMovieList(res.data.results);
+      });
+  };
 
   useEffect(() => {
-    getData()
-  }, [page])
+    getData();
+  }, [page]);
 
   return (
     <div className="App">
@@ -29,10 +42,14 @@ function App() {
 
       <main>
         <MovieScreen
-          movieList = {movieList}
-          page = {page}
-          setPage = {setPage}
-          list = {list} />
+          addMovie={addMovie}
+          movieList={movieList}
+          page={page}
+          setPage={setPage}
+          list={list}
+          removeMovie={removeMovie}
+        />
+        <Watchlist list={list} removeMovie={removeMovie} />
       </main>
     </div>
   );
