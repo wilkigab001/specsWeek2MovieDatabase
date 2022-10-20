@@ -1,5 +1,6 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import '../App.css'
 
 const Watchlist = ({ list, removeMovie }) => {
   // Movie card was expecting a movie prop, so we had to rename what the item was called within the .map function to be able to access the movie in moviecard

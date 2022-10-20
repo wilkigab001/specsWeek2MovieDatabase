@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css'
 
 const MovieCard = ({ movie, addMovie, list, removeMovie }) => {
 //    const { movie, addMovie, list, removeMovie } = props;
