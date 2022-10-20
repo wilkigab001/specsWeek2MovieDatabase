@@ -13,7 +13,7 @@ const Watchlist = ({ list, removeMovie }) => {
 
   return (
     <div className="watchlist">
-      <h1>My Watchlist</h1>
+      <h1 className="watchlist-header">My Watchlist</h1>
       <div className="movie-container">
         {movieDisplay}
       </div>
@@ -21,4 +21,4 @@ const Watchlist = ({ list, removeMovie }) => {
   );
 };
 
-export default Watchlist;
+export default Watchlist

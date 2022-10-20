@@ -24,8 +24,8 @@ const MovieScreen = ({
     <div className="page">
       <h1>Gabriel's Movie Theatre</h1>
       <div className="btn-container">
-        <button onClick={page !== 1 && decrement}>Previous</button>
-        <button onClick={increment}>Next</button>
+        <button onClick={page !== 1 && decrement} className='btn'>Previous</button>
+        <button onClick={increment} className='btn'>Next</button>
       </div>
       <h3>Add a movie to your watchlist!</h3>
       <div className="movie-container">{movieDisplay}</div>

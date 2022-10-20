@@ -22,6 +22,7 @@ function App() {
   };
 
   const getData = () => {
+    console.log('hello')
     axios
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
@@ -33,7 +34,7 @@ function App() {
   };
 
   useEffect(() => {
-    getData();
+    getData()
   }, [page]);
 
   return (

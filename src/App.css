@@ -1,13 +1,22 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
-header {
-  text-align: center;
+
+.header {
+  background: #CCDBDC;
+  height: 60px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
 }
 
 main {
   display: flex;
   justify-content: space-between;
+  background-color: #80CED7;
 }
 
 img {
@@ -16,8 +25,9 @@ img {
 }
 
 .page {
-  border: solid blue 2px;
   width: 66%;
+  text-align: center; 
+
 }
 
 .movie-container {
@@ -31,11 +41,11 @@ img {
 }
 
 .watchlist {
-  border: solid red 2px;
   width: 33%;
 }
 
 .movie-card {
+  background: #CCDBDC;
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -43,4 +53,35 @@ img {
   align-items: center;
   text-align: center;
   margin: 20px;
+  border: 2px black solid;
+  border-radius: 30px;
 }
+
+.btn-container{
+  padding: 10px;
+}
+button{
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 200ms,background 200ms;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 0 0 3px #000000 inset;
+}
+
+button:hover{
+      transform: translateY(-2px);
+}
+
+.watchlist-header {
+  text-align: center;
+}
+
